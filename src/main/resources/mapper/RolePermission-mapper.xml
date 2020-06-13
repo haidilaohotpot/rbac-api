@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder4work.mapper.RolePermissionMapper">
+
+
+    <delete id="removeAll" parameterType="String">
+        delete
+        from
+          t_role_permission
+        where
+          role_id = #{roleId}
+
+    </delete>
+
+    <insert id="doAssign" parameterType="Map">
+
+        insert into
+        t_role_permission(role_id,permission_id)
+        values
+        <foreach collection="map.permissionIds" separator=","  item="permissionId" >
+            (
+            #{map.roleId},#{permissionId}
+            )
+        </foreach>
+
+    </insert>
+
+</mapper>

@@ -1,0 +1,14 @@
+
+server:
+  port: 8088
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/rbac?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC
+    password: 7777777
+
+# mybatis 日志打印
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
